@@ -7,6 +7,8 @@
     <title>Document</title>
   </head>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto&display=swap");
+
     body {
       margin: 0;
     }
@@ -14,14 +16,21 @@
       display: flex;
       background-color: black;
     }
+    .nav-list-container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
     .nav-list {
       display: flex;
       list-style: none;
+      align-items: center;
     }
     .nav-list-item {
-      padding-right: 1rem;
+      padding-right: 2rem;
       color: white;
-      line-height: 2;
+      font-family: "Roboto", sans-serif;
+      font-style: italic;
       font-size: 1.3rem;
     }
     .nav-list-vertical {
@@ -35,8 +44,10 @@
     .nav-list-item-vertical {
       padding-right: 1rem;
       color: white;
-      line-height: 2;
       font-size: 1.3rem;
+      font-style: italic;
+      padding-bottom: 1rem;
+      font-family: "Roboto", sans-serif;
     }
     .nav-list-item:hover {
       color: cornflowerblue;
@@ -46,26 +57,35 @@
       color: cornflowerblue;
       cursor: pointer;
     }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-logo > img {
       width: 50px;
-      padding-left: 0.5rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      padding: 1rem;
     }
+    .nav-logo > p {
+      color: red;
+      font-family: "Calligraffitti", cursive;
+      font-size: 1.3rem;
+    }
+    .menu-icon {
+      display: flex;
+      align-items: center;
+    }
+
     .menu-icon > img {
       width: 50px;
-      padding-top: 0.5rem;
+
       display: none;
     }
     .menu-icon:hover {
       cursor: pointer;
     }
-    .nav-list-container {
-      display: flex;
-      justify-content: center;
-    }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       .nav-bar {
         justify-content: space-between;
       }
@@ -82,7 +102,9 @@
     <div class="nav-bar">
       <div class="nav-logo">
         <img src="redlogo.png" alt="" />
+        <p>Company Logo</p>
       </div>
+
       <div class="nav-list-container">
         <ul class="nav-list">
           <li class="nav-list-item">Home</li>
@@ -93,6 +115,7 @@
           <li class="nav-list-item">About</li>
         </ul>
       </div>
+
       <div class="menu-icon" onclick="toggleNav()">
         <img src="menu.png" alt="" />
       </div>
