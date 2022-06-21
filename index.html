@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    .nav-bar {
+      display: flex;
+      background-color: black;
+    }
+    .nav-list {
+      display: flex;
+      list-style: none;
+    }
+    .nav-list-item {
+      padding-right: 1rem;
+      color: white;
+      line-height: 2;
+      font-size: 1.3rem;
+    }
+    .nav-list-vertical {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      list-style: none;
+      background-color: black;
+      margin: 0;
+    }
+    .nav-list-item-vertical {
+      padding-right: 1rem;
+      color: white;
+      line-height: 2;
+      font-size: 1.3rem;
+    }
+    .nav-list-item:hover {
+      color: cornflowerblue;
+      cursor: pointer;
+    }
+    .nav-list-item-vertical:hover {
+      color: cornflowerblue;
+      cursor: pointer;
+    }
+    .nav-logo > img {
+      width: 50px;
+      padding-left: 0.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .menu-icon > img {
+      width: 50px;
+      padding-top: 0.5rem;
+      display: none;
+    }
+    .menu-icon:hover {
+      cursor: pointer;
+    }
+    .nav-list-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      .nav-bar {
+        justify-content: space-between;
+      }
+      .menu-icon > img {
+        padding-right: 0.5rem;
+        display: block;
+      }
+      .nav-list-item {
+        display: none;
+      }
+    }
+  </style>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-logo">
+        <img src="redlogo.png" alt="" />
+      </div>
+      <div class="nav-list-container">
+        <ul class="nav-list">
+          <li class="nav-list-item">Home</li>
+          <li class="nav-list-item">Shop</li>
+          <li class="nav-list-item">Contacts</li>
+          <li class="nav-list-item">Location</li>
+          <li class="nav-list-item">Team</li>
+          <li class="nav-list-item">About</li>
+        </ul>
+      </div>
+      <div class="menu-icon" onclick="toggleNav()">
+        <img src="menu.png" alt="" />
+      </div>
+    </div>
+    <ul class="nav-list-vertical">
+      <li class="nav-list-item-vertical">Home</li>
+      <li class="nav-list-item-vertical">Shop</li>
+      <li class="nav-list-item-vertical">Contacts</li>
+      <li class="nav-list-item-vertical">Location</li>
+      <li class="nav-list-item-vertical">Team</li>
+      <li class="nav-list-item-vertical">About</li>
+    </ul>
+    <script>
+      window.onresize = hideNavbar;
+      const navBar = document.querySelector(".nav-list-vertical");
+
+      function toggleNav() {
+        let displayProperty = getComputedStyle(navBar).display;
+        if (displayProperty == "none") {
+          navBar.style.setProperty("display", "flex");
+        }
+        if (displayProperty == "flex") {
+          navBar.style.setProperty("display", "none");
+        }
+      }
+
+      function hideNavbar() {
+        if (window.innerWidth > 500) {
+          navBar.style.setProperty("display", "none");
+        }
+      }
+    </script>
+  </body>
+</html>
